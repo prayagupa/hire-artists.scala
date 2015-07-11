@@ -1,5 +1,6 @@
-package com.hireartists.core
+package com.hireartists.core.controller
 
+import com.hireartists.core.services.ArtistService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -11,7 +12,7 @@ class ArtistController @Autowired() (artistService: ArtistService) {
 
   @RequestMapping(method = Array(RequestMethod.GET))
   def index (model: Model) = {
-    model.addAttribute("name", artistService.name)
+    model.addAttribute("name", artistService.getArtists)
     "index"
   }
 
